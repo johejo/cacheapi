@@ -13,6 +13,15 @@ clean:
 binary:
 	$(GO) build -o out/$(NAME) $(TARGET)
 
+.PHONY: min-binary
+min-binary:
+	$(GO) build -ldflags '-s -w' -o out/$(NAME) $(TARGET)
+	upx out/$(NAME)
+
+.PHONY: docker
+docker:
+	docker build -t cacheapi .
+
 .PHONY: test
 test:
 	$(GO) test -v ./...

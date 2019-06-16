@@ -42,6 +42,14 @@ Usage of cacheapi
         Print server version.
 ```
 
+## Docker Image
+
+[Docker Hub](https://hub.docker.com/r/johejo/cacheapi)
+
+```bash
+docker run --rm -d -p 8888:8888 johejo/cacheapi
+```
+
 ## License
 
 MIT
