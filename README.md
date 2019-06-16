@@ -7,7 +7,7 @@ An alternative [BigCache HTTP Server](https://github.com/allegro/bigcache/tree/m
 
 ## Web API document
 
-https://johejo.github.io/cacheapi/rest
+https://johejo.github.io/cacheapi/rest/index.html
 
 ## Installing
 
