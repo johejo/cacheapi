@@ -2,9 +2,12 @@
 
 An alternative [BigCache HTTP Server](https://github.com/allegro/bigcache/tree/master/server)
 
-## Web API documents
+[![Build Status](https://travis-ci.com/johejo/cacheapi.svg?branch=master)](https://travis-ci.com/johejo/cacheapi)
+[![GoDoc](https://godoc.org/github.com/johejo/cacheapi?status.svg)](https://godoc.org/github.com/johejo/cacheapi)
 
-todo
+## Web API document
+
+https://johejo.github.io/cacheapi/rest
 
 ## Installing
 
@@ -14,8 +17,9 @@ go get -u github.com/joehjo/cacheapi/cmd/cacheapi
 
 ## CLI
 
+Usage of cacheapi
+
 ```
-Usage of ./cacheapi:
   -clearWindow duration
         Interval between removing expired entries (clean up).
   -hardMaxCacheSize int

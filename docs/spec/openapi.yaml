@@ -1,0 +1,165 @@
+openapi: 3.0.2
+info:
+  title: cacheapi API
+  version: 0.0.1
+paths:
+  /api/v0/cache:
+    get:
+      summary: Returns all items in cache
+      description: ""
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+    put:
+      summary: Put item into cache
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Anything is acceptable even if it is JSON.
+              example:
+                {
+                  "foo": "bar"
+                }
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generatedKey'
+
+  /api/v0/cache/{key}:
+    get:
+      summary: Get item from cache
+      parameters:
+        - name: key
+          in: path
+          required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAndID'
+        404:
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+
+    put:
+      summary: Put item into cache with key
+      parameters:
+        - name: key
+          in: path
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Anything is acceptable even if it is JSON.
+              example:
+                {
+                  "foo": "bar"
+                }
+      responses:
+        204:
+          description: No content
+    delete:
+      summary: Delete item from cache
+      parameters:
+        - name: key
+          in: path
+          required: true
+      responses:
+        204:
+          description: No content
+
+  /api/v0/cache/status:
+    get:
+      summary: Get cache status
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/status'
+  /api/v0/stats:
+    get:
+      summary: Get stats
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/stats'
+
+components:
+  schemas:
+    message:
+      type: object
+      properties:
+        message:
+          type: string
+          example:
+            "message text"
+    generatedKey:
+      type: object
+      properties:
+        key:
+          type: string
+          format: uuid
+          example: "04dbf395-b35f-40a1-9eb9-9994395c0654"
+    Item:
+      type: object
+      example:
+        {
+          "foo": "bar"
+        }
+    ItemAndID:
+      type: object
+      example:
+        {
+         "04dbf395-b35f-40a1-9eb9-9994395c0654": { "foo": "bar" }
+        }
+    status:
+      type: object
+      properties:
+        length:
+          type: integer
+          example: 1
+        capacity:
+          type: inter
+          example: 999
+    stats:
+      type: object
+      properties:
+        hits:
+          type: integer
+          example: 0
+        misses:
+          type: integer
+          example: 0
+        delete_hiss:
+          type: integer
+          example: 0
+        delete_misses:
+          type: integer
+          example: 0
+        collisions:
+          type: integer
+          example: 0
+
