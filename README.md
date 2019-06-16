@@ -4,6 +4,8 @@ An alternative [BigCache HTTP Server](https://github.com/allegro/bigcache/tree/m
 
 [![Build Status](https://travis-ci.com/johejo/cacheapi.svg?branch=master)](https://travis-ci.com/johejo/cacheapi)
 [![GoDoc](https://godoc.org/github.com/johejo/cacheapi?status.svg)](https://godoc.org/github.com/johejo/cacheapi)
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/johejo/cacheapi.svg)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/johejo/cacheapi.svg)
 
 ## Web API document
 
