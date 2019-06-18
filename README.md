@@ -14,7 +14,7 @@ https://johejo.github.io/cacheapi/rest/index.html
 ## Installing
 
 ```bash
-go get -u github.com/johjo/cacheapi/cmd/cacheapi
+go get -u github.com/johejo/cacheapi/cmd/cacheapi
 ```
 
 ## CLI
